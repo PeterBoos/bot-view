@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Botter";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="bot-response-box">
+            <h4>Bot</h4>
+            <p id="div-bot-response-text" class="bot-response-box-text"></p>
+        </div>
+        <div class="user-input-box">
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="text" id="txt-user-input" />
+                </div>
+                <div class="col-md-2">
+                    <input type="button" id="btn-user-input" value="Send" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="info-text-box"></div>
+    </div>
+</div>
+
+@section scripts
+    {
+    <script type="text/javascript">
+        $('#btn-user-input').on('click', function () {
+            var text = $('#txt-user-input').val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("PostQuery", "Home")',
+                data: { "query":text },
+                success: function (data) {
+                    var botbox = $('#div-bot-response-text');
+                    //botbox.text(text + ': yes,' + data.Message);
+                    botbox.append('</br><strong>You > ' + text + '</strong>');
+                    botbox.append('</br>Bot > yes,' + data.Message);
+                    $('#txt-user-input').val('');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $('#div-bot-response-text').html('<span class="text-danger">Error: ' + jqXHR.responseJSON.Message + '</span>');
+                }
+            })
+        });
+    </script>
+}
