@@ -22,8 +22,10 @@ namespace BotView.Controllers
              *  Todo:
              *  
              *  Do the bot stuffs here
+             *  Contact the bot service via api or something,
              *  parameter query is the user input to be evaluated
-             *  replace "Query successful" with bot response
+             *  replace "Yes, the query was successful" in result
+             *  with bot response
              */
 
 

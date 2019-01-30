@@ -34,11 +34,11 @@ body {
 
 .user-input-box {
     background-color: #DDBDD5;
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
     border-radius: 5px;
 }
 
-    .user-input-box input {
-        width: 100%;
-        margin: 0 0 5px 0;
-    }
+#txt-user-input {
+    margin: 0 3px 0 15px;
+    width: 80%;
+}
