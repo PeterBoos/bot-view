@@ -32,12 +32,12 @@
             $.ajax({
                 type: 'GET',
                 url: '@Url.Action("PostQuery", "Home")',
-                data: { "query":text },
+                data: { "query": text },
+                dataType: 'json',
                 success: function (data) {
                     var botbox = $('#div-bot-response-text');
-                    //botbox.text(text + ': yes,' + data.Message);
                     botbox.append('</br><strong>You > ' + text + '</strong>');
-                    botbox.append('</br>Bot > yes,' + data.Message);
+                    botbox.append('</br>Bot > ' + data.Message);
                     $('#txt-user-input').val('');
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

@@ -29,7 +29,7 @@ namespace BotView.Controllers
 
             var result = JsonConvert.SerializeObject(new
             {
-                Message = "Query successful",
+                Message = "Yes, the query was successful",
                 Query = query
             });
 
